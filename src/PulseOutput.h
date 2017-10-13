@@ -13,13 +13,23 @@ pulse of specific length on the specified output
 class PulseOutput
 {
   public:
-    // constructor
+    // constructors
+    PulseOutput (
+      const char pin                    // the pin we want to use
+    );
+
+    PulseOutput (
+      const char pin,                   // the pin we want to use
+      const unsigned long pulseLength   // the length of the pulse
+    );
+
     PulseOutput (
       const char pin,                   // the pin we want to use
       const unsigned long pulseLength,  // the length of the pulse
       const bool pulsePolarity = true   // the polarity of the pulse true: ON = HIGH, false: ON = LOW
     );
 
+    // methods
     void begin ();
     void update ();
     void trigger ();
