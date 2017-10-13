@@ -62,3 +62,16 @@ void PulseOutput::update()
   }
   return;
 } // end of PulseOutput::update
+
+
+bool PulseOutput::isActive ()
+{
+  if (pulseActive_== true)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+} // end of PulseOutput::isActive

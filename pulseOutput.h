@@ -21,6 +21,7 @@ class PulseOutput
     void begin ();
     void update ();
     void trigger ();
+    bool isActive ();
 
   private:
     const char pin_;
