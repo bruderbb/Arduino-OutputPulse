@@ -2,9 +2,13 @@
 Adds the ability to construct a pulse output which, when triggered, generates a
 pulse of specific length on the specified output
 */
-
-#include "Arduino.h"
-
+#ifndef PULSEOUTPUT_H
+#define PULSEOUTPUT_H
+#if ARDUINO >= 100
+#include <Arduino.h>
+#else
+#include <WProgram.h>
+#endif
 
 class PulseOutput
 {
@@ -28,3 +32,4 @@ class PulseOutput
     bool pulseActive_;                  // HIGH when a pulse is currently active
     unsigned long startTime_;           // time the pulse started
 }; // end of PulseOutput class
+#endif // end of Include Guard PulseOutput_h
