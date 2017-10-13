@@ -7,10 +7,15 @@ pulse of specific length on the specified output
 
 // constructor
 PulseOutput::PulseOutput (
-  const char pin, const unsigned long pulseLength, const bool pulsePolarity
-) : pin_ (pin), pulseLength_ (pulseLength), pulsePolarity_ (pulsePolarity)
+  const char pin,
+  const unsigned long pulseLength,
+  const bool pulsePolarity
+)
 {
   startTime_ = 0;
+  pin_ = pin;
+  pulseLength_ = pulseLength;
+  pulsePolarity_ = pulsePolarity;
 } // end of PulseOutput::PulseOutput
 
 void PulseOutput::begin()
