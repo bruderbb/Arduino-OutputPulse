@@ -15,18 +15,9 @@ class PulseOutput
   public:
     // constructors
     PulseOutput (
-      const char pin                    // the pin we want to use
-    );
-
-    PulseOutput (
-      const char pin,                   // the pin we want to use
-      const unsigned long pulseLength   // the length of the pulse
-    );
-
-    PulseOutput (
-      const char pin,                   // the pin we want to use
-      const unsigned long pulseLength,  // the length of the pulse
-      const bool pulsePolarity = true   // the polarity of the pulse true: ON = HIGH, false: ON = LOW
+      const char pin,                        // the pin we want to use
+      const unsigned long pulseLength = 25,  // the length of the pulse
+      const bool pulsePolarity = true        // the polarity of the pulse true: ON = HIGH, false: ON = LOW
     );
 
     // methods

@@ -5,30 +5,7 @@ pulse of specific length on the specified output
 
 #include <PulseOutput.h>
 
-// constructors
-// constructor for just the pin
-PulseOutput::PulseOutput (
-  const char pin
-)
-{
-  startTime_      = 0;
-  pin_            = pin;
-  pulseLength_    = 25;     // predefined pulseLength
-  pulsePolarity_  = true;   // predefined pulsePolarity
-} // end of PulseOutput::PulseOutput
-
-// constructor for pin and pulseLength
-PulseOutput::PulseOutput (
-  const char pin,
-  const unsigned long pulseLength
-)
-{
-  startTime_      = 0;
-  pin_            = pin;
-  pulseLength_    = pulseLength;
-  pulsePolarity_  = true;
-} // end of PulseOutput::PulseOutput
-
+/* constructors */
 // constructor for pin, pulseLength and pulsePolarity
 PulseOutput::PulseOutput (
   const char pin,
@@ -42,6 +19,7 @@ PulseOutput::PulseOutput (
   pulsePolarity_ = pulsePolarity;
 } // end of PulseOutput::PulseOutput
 
+/* methods */
 void PulseOutput::begin()
 {
   // set the pin as output
