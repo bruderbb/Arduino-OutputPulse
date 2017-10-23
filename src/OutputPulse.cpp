@@ -3,11 +3,11 @@ Adds the ability to construct a pulse output which, when triggered, generates a
 pulse of specific length on the specified output
 */
 
-#include <PulseOutput.h>
+#include <OutputPulse.h>
 
 /* constructors */
 // constructor for pin, pulseLength and pulsePolarity
-PulseOutput::PulseOutput (
+OutputPulse::OutputPulse (
   const char pin,
   const unsigned long pulseLength,
   const bool pulsePolarity
@@ -17,22 +17,22 @@ PulseOutput::PulseOutput (
   pin_ = pin;
   pulseLength_ = pulseLength;
   pulsePolarity_ = pulsePolarity;
-} // end of PulseOutput::PulseOutput
+} // end of OutputPulse::OutputPulse
 
 /* methods */
-void PulseOutput::begin()
+void OutputPulse::begin()
 {
   // set the pin as output
   pinMode(pin_, OUTPUT);
   // set the initial output value based on pulsePolarity
   digitalWrite(pin_, !pulsePolarity_);
-} // end of PulseOutput::begin
+} // end of OutputPulse::begin
 
 
 /*
 @brief Triggers an output pulse
 */
-void PulseOutput::trigger()
+void OutputPulse::trigger()
 {
   // set the start time
   startTime_ = millis();
@@ -40,10 +40,10 @@ void PulseOutput::trigger()
   pulseActive_ = true;
   // activate the output
   digitalWrite(pin_, pulsePolarity_);
-} // end of PulseOutput::trigger
+} // end of OutputPulse::trigger
 
 
-void PulseOutput::update()
+void OutputPulse::update()
 {
   // do nothing if no pulse is active
   if (!pulseActive_)
@@ -71,10 +71,10 @@ void PulseOutput::update()
     pulseActive_ = false;
   }
   return;
-} // end of PulseOutput::update
+} // end of OutputPulse::update
 
 
-bool PulseOutput::isActive ()
+bool OutputPulse::isActive ()
 {
   if (pulseActive_== true)
   {
@@ -84,4 +84,4 @@ bool PulseOutput::isActive ()
   {
     return false;
   }
-} // end of PulseOutput::isActive
+} // end of OutputPulse::isActive
