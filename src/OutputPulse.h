@@ -10,14 +10,19 @@ pulse of specific length on the specified output
 #include <WProgram.h>
 #endif
 
+#ifndef OUTPUTPULSE_DEBUG
+// uncomment the following line to enable serial debug output messages
+//#define OUTPUTPULSE_DEBUG
+#endif
+
 class OutputPulse
 {
   public:
     // constructors
     OutputPulse (
-      const char pin,                        // the pin we want to use
-      const unsigned long pulseLength = 25,  // the length of the pulse
-      const bool pulsePolarity = true        // the polarity of the pulse true: ON = HIGH, false: ON = LOW
+      const uint8_t    pin,                   // the pin we want to use
+      const uint32_t   pulseLength    = 25,   // the length of the pulse
+      const bool       pulsePolarity  = true  // the polarity of the pulse true: ON = HIGH, false: ON = LOW
     );
 
     // methods
@@ -27,10 +32,10 @@ class OutputPulse
     bool isActive ();
 
   private:
-    char pin_;
-    unsigned long pulseLength_;
-    bool pulsePolarity_;
-    bool pulseActive_;                  // HIGH when a pulse is currently active
-    unsigned long startTime_;           // time the pulse started
+    uint8_t   pin_;
+    uint32_t  pulseLength_;
+    bool      pulsePolarity_;
+    bool      pulseActive_;    // HIGH when a pulse is currently active
+    uint32_t  startTime_;      // time the pulse started
 }; // end of OutputPulse class
 #endif // end of Include Guard OutputPulse_h
