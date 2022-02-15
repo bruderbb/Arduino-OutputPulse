@@ -1,14 +1,12 @@
 /*
 Adds the ability to construct a pulse output which, when triggered, generates a
-pulse of specific length on the specified output
+(non-blocking) pulse of specific length on the specified output
 */
 #ifndef OutputPulse_H
 #define OutputPulse_H
-#if ARDUINO >= 100
-#include <Arduino.h>
-#else
-#include <WProgram.h>
 #endif
+
+#include <Arduino.h>
 
 #ifndef OUTPUTPULSE_DEBUG
 // uncomment the following line to enable serial debug output messages
