@@ -1,6 +1,6 @@
 /*
 Adds the ability to construct a pulse output which, when triggered, generates a
-pulse of specific length on the specified output
+(non-blocking) pulse of specific length on the specified output
 */
 
 #include <OutputPulse.h>
