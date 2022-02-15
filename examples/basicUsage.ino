@@ -10,8 +10,8 @@ uint32_t now            = 0;    // variable for storing the current time
 uint32_t outputInterval = 5000; // the output pulse is triggered in this interval (ms)
 uint32_t lastPulseTime  = 0;    // Variable for storing the last pulse time
 
-// This sets the physical output pin we want to use
-char outputPin = A0;
+// This sets the physical output pin we want to use to pin 7
+#define outputPin 7
 
 void setup() {
   // let's set up serial so we can see what happens
@@ -37,8 +37,10 @@ void loop() {
   // we have to call the xxxx.update() function for every OutputPulse-object
   // we created... in this case just for "pulse"
   pulse.update();
+  
+  // the code below is for repeating the pulse every "outputInterval":
   // if interval since last pulse-trigger has passed
-  // we reset time and start a new output pulse
+  // we reset time and trigger a new output pulse
   if ((lastPulseTime + outputInterval) >= now)
   {
     //give some feedback over serial interface
